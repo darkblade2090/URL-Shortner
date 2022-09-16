@@ -8,6 +8,7 @@ app.set('view engine',"ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 initiateRoutes(app);
 
 initiatemongoose()
@@ -15,7 +16,7 @@ initiatemongoose()
 {
     console.log("Data Base connected successfully");
 
-    app.listen(3000, function()
+    app.listen(process.env.PORT || 5000, function()
 	{
 		console.log("Server is live");
         
