@@ -54,7 +54,7 @@ module.exports = async function(req,res)
         data.formMessage = 'Error while loading data'
     }
 
-  res.render('homePage.ejs',{data : data});
+  res.render('HomePage.ejs',{data : data});
     
 return;
 }

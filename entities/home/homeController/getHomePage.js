@@ -14,7 +14,7 @@ module.exports = async function(req,res)
         console.log(e);
         data.message = 'Error while loading data'
     }
-    res.render('homePage.ejs',{data : data});
+    res.render('HomePage.ejs',{data : data});
     
     return
 }
