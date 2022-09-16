@@ -6,7 +6,7 @@ var randomstring = require("randomstring");
 
 module.exports = async function(req,res)
 {
-    var domain = 'https://url-shortner4.herokuapp.com/';
+    var domain = 'http:localhost:3000/';
     data={title : 'Url Shortner',urlData: null, message: '' , formMessage: '', check : true, domain: domain}
     var longUrl = req.body.url;
     //console.log(longUrl); 
