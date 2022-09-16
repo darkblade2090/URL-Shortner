@@ -2,7 +2,8 @@ const urlModel = require('../../../database/models/urlModel.js');
 
 module.exports = async function(req,res)
 {
-    data={title : 'Url Shortner', urlData: null, message: '', formMessage: '' , check: true}
+    var domain = 'http:localhost:3000/';
+    data={title : 'Url Shortner', urlData: null, message: '', formMessage: '' , check: true, domain: domain};
     try
     {
         var urlData = await urlModel.find();
