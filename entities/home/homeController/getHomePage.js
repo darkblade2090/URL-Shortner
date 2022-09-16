@@ -2,7 +2,7 @@ const urlModel = require('../../../database/models/urlModel.js');
 
 module.exports = async function(req,res)
 {
-    var domain = 'http:localhost:3000/';
+    var domain = 'http://localhost:3000/';
     data={title : 'Url Shortner', urlData: null, message: '', formMessage: '' , check: true, domain: domain};
     try
     {
@@ -14,7 +14,7 @@ module.exports = async function(req,res)
         console.log(e);
         data.message = 'Error while loading data'
     }
-    res.render('homePage.ejs',{data : data});
+    res.render('HomePage.ejs',{data : data});
     
     return
 }
