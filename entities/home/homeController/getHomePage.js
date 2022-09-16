@@ -2,7 +2,7 @@ const urlModel = require('../../../database/models/urlModel.js');
 
 module.exports = async function(req,res)
 {
-    var domain = 'http:localhost:3000/';
+    var domain = 'https://url-shortner4.herokuapp.com/';
     data={title : 'Url Shortner', urlData: null, message: '', formMessage: '' , check: true, domain: domain};
     try
     {
