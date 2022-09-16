@@ -1,0 +1,21 @@
+const mongoose=require('mongoose');
+ 
+const urlSchema = new mongoose.Schema({
+
+longUrl : {
+  type: String,
+  required: true
+},
+shortUrl: {
+    type: String,
+    required: true,
+  }
+},
+
+{timestamps:true}
+);
+
+
+const urlModel=mongoose.model('urlSchema',urlSchema);
+
+module.exports=urlModel;

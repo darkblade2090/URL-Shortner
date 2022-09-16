@@ -1,0 +1,74 @@
+<%- include("partials/header"),{data : data} %>
+<%- include("partials/nav")%>
+
+<div class="p-5 m-2">
+    <form  method="post" data-toggle="validator" action="/">
+        <div class="text-center">
+          <legend class="text-center"><h1>Short URL Here</h1></legend>
+          <div class="mb-3">
+            <label for="disabledTextInput" class="form-label control-label">Enter URL</label>
+            <input type="url" id="disabledTextInput" class="form-control" placeholder="http://www.example.com/index" name="url" data-bv-uri-message="The website address is not valid">
+          </div>
+          <%if(data.check==false && data.formMessage!=''){%>
+            <div class="alert alert-danger p-2" role="alert">
+                <%=data.formMessage%>
+            </div>
+          <%}else if(data.check==true && data.formMessage!=''){%>
+            <div class="alert alert-success p-2" role="alert">
+                <%=data.formMessage%>
+            </div>
+          <%}%>
+          <button  type="submit" class="btn btn-primary text-center">Short URL</button>
+        </div>
+      </form>
+</div>
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-10">
+  
+          <div class="card">
+            <div class="card-header p-3">
+              <h3 class="mb-0"><i class="fas fa-tasks me-2"></i>Shorted URLs</h3>
+            </div>
+            <div class="card-body overflow-auto" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
+  
+              <table class="table mb-0 ">
+                <%if(data.urlData!=undefined || data.urlData){%>
+                <thead>
+                  <tr>
+                    <th scope="col">Original Url</th>
+                    <th scope="col">Shorted Url</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                 <%data.urlData.forEach(function(urlNode) {%>
+                  <tr class="fw-normal text-truncate" style="max-width: 150px;">
+                    <th>
+                      
+                      <span class="ms-2 d-inline-block text-truncate" style="max-width: 20em;"><a href="<%=urlNode.longUrl%>"><%=urlNode.longUrl%></a></span>
+                    </th>
+                    <td class="align-middle">
+                      <span><a href="<%='http://localhost:3000/'+urlNode.shortUrl%>"></a><%='http://localhost:3000/'+urlNode.shortUrl%></a></span>
+                    </td>
+                    
+                    <td class="align-middle">
+                      <a href="/remove/<%=urlNode._id%>" data-mdb-toggle="tooltip" title="Remove"><i
+                          class="fas fa-trash-alt text-danger"></i></a>
+                    </td>
+                  </tr>  
+                </tbody>
+              <%})%>
+            <%}else {%>
+                <span style="float:center;">No data</span>
+            <%}%>
+            </table>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<%- include("partials/footer")%>
